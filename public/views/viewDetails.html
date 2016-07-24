@@ -1,0 +1,101 @@
+<section>
+    <!-- <div class="row" ng-repeat="(key,value) in data">
+        <label class="left">EMPLOYEE {{key | uppercase}}</label>
+        <div class="middle">
+            <div ng-if="(key !='qualification') && (key !='city') && (key !='address') && (key !='workNature')">{{value}}</div>
+            <div ng-if="(key =='qualification')">
+                <span>{{value['selectedName']}}</span>
+                <span ng-repeat="(key,value) in value['gradDetail']">
+                   {{value}}
+                </span>
+                <span ng-repeat="(key,value) in value['postgradDetail']">
+                   {{value}}
+                </span>
+            </div>
+            <div ng-if="(key =='city')">
+                <span ng-repeat="(key,value) in value">
+                   {{value}}
+                </span>
+            </div>
+            <div ng-if="(key =='address')">
+                <div ng-repeat="(key,value) in value">
+                    {{value}}
+                </div>
+            </div>
+            <div ng-if="(key =='workNature')">
+                {{value['selected']}}(
+                <span ng-repeat="(key,value) in value['details']">
+                {{value}} -  
+                </span> )
+            </div>
+        </div>
+    </div> -->
+    <div class="row">
+        <label class="left">EMPLOYEE ID</label>
+        <div class="middle mt5">
+            {{data['id']}}
+        </div>
+    </div>
+    <div class="row">
+        <label class="left">Email ID</label>
+        <div class="middle mt5">
+            {{data['email']}}
+        </div>
+    </div>
+    <div class="row">
+        <label class="left">NAME</label>
+        <div class="middle mt5">
+            {{data['name']}}
+        </div>
+    </div>
+    <div class="row">
+        <label class="left">PHONE</label>
+        <div class="middle mt5">
+            {{data['phone']}}
+        </div>
+    </div>
+    <div class="row">
+        <label class="left">DEPARTMENT</label>
+        <div class="middle mt5">
+            {{data['department']}}
+        </div>
+    </div>
+    <div class="row">
+        <label class="left">DESIGNATION</label>
+        <div class="middle mt5">
+            {{data['designation']}}
+        </div>
+    </div>
+    <div class="row">
+        <label class="left">QUALIFICATION</label>
+        <div class="middle mt5" ng-if="(data['qualification']['selected'] == 1)">
+            Graduation - <div><span ng-repeat="(key, value) in data['qualification']['gradDetail']"> {{value}} </span></div>
+        </div>
+        <div class="middle mt5" ng-if="(data['qualification']['selected'] == 2)">
+           Post graduation - <div><span ng-repeat="(key, value) in data['qualification']['postgradDetail']"> {{value}} </span></div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="left">EMPLOYEMENT STATUS</label>
+        <div class="middle mt5">
+            <div class="middle mt5">
+             {{data['workNature']['selected']}} -<span ng-repeat="(key, value) in data['workNature']['details']"> {{value}} </span>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="left">ADDRESS</label>
+        <div class="middle mt5">
+            <div class="middle mt5">
+              <div ng-repeat="(key, value) in data['address']"> {{value}} </div>
+              <div>{{data['pin']}}</div>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="center">
+            <button ng-click="confirmAddition()">Confirm</button>
+            <button ng-click="goBack()">Back</button>
+        </div>
+    </div>
+</section>

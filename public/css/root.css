@@ -1,0 +1,281 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    background-color: #108B93;
+    color: #fff;
+    padding: 10px;
+}
+
+.viewBlock .addEmpl,
+.searchCandidate {
+    margin-top: 1px;
+    padding: 15px 10px;
+    background-color: #108B93;
+}
+
+.viewBlock .addEmpl button,
+.searchCandidate button {
+    color: #fff;
+    background-color: #AD1C26;
+    border: none;
+    padding: 10px;
+}
+
+.tableSet {
+    margin-top: 1px;
+    background-color: #108B93;
+    overflow: hidden;
+}
+
+.tableSet header {
+    background-color: #4D3A7C;
+    overflow: hidden;
+}
+
+.tableSet div {
+    float: left;
+    width: 14%;
+    text-align: center;
+}
+
+.tableSet section {
+    background-color: #49CA3A;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.tableSet section div {
+    width: 14%;
+    float: left;
+    text-align: center;
+}
+
+.tableSet section div button {
+    background-color: #4D3A7C;
+    color: #fff;
+    padding: 5px;
+    border: none;
+}
+
+.detailsSection {
+    width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.row {
+    margin-bottom: 20px;
+    float: left;
+    width: 100%;
+}
+
+.row .left {
+    width: 26%;
+    text-align: right;
+    float: left;
+    padding: 10px 15px 10px 0;
+    color: #707070;
+    font-weight: 400;
+}
+
+.row .middle {
+    width: 47%;
+    text-align: left;
+    float: left;
+}
+
+.row input {
+    border: 1px solid #dfdfdf;
+    padding: 10px;
+    width: 100%;
+    font-size: 100%;
+}
+
+.select,
+.ddwn .DDwrap .DDsearch input {
+    border: #DFDFDF solid 1px;
+    padding: 10px;
+    width: 100%;
+    font-size: 100%;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.listing li {
+    cursor: pointer;
+}
+
+.listing li .tuple {
+    padding: 5px 10px;
+}
+
+.listing li .tuple input[type="checkbox"] + .transcluded:before {
+    content: '';
+    background: url(../i/iconSprites.png) no-repeat;
+    background-position: 0px 0px;
+    display: inline-block;
+    float: left;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.listing li .tuple input[type="checkbox"]:checked + .transcluded:before {
+    background-position: 0px -16px;
+}
+
+.listing li .tuple:hover {
+    color: #27A7D4;
+}
+
+.listing li .tuple.notSelectable {
+    background-color: #D0E0F1;
+}
+
+.listing li .tuple.notSelectable:hover {
+    color: #000000;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.ddwn .DDwrap .DDsearch .DDinputWrap {
+    position: relative;
+}
+
+.ddwn .DDwrap .DDsearch .DDinputWrap .ddIcon {
+    display: inline-block;
+    right: 12px;
+    top: 15px;
+    position: absolute;
+    background: url(../i/iconSprites.png) no-repeat;
+    background-position: 0px -30px;
+    width: 15px;
+    height: 12px;
+}
+
+.ddwn {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.ddwn .dd_dwn {
+    overflow-y: scroll;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background: white;
+    border: 1px solid #DFDFDF;
+    max-height: 150px;
+    /*ul { li { div { cursor: pointer; padding: 5px 10px; &:hover { color: $curious-blue; } &.notSelectable { background-color: $link-water; &:hover { color: $black; } } } }
+}*/
+}
+
+.row.has-error input,
+{
+    border: 1px solid red;
+}
+
+.row .help-block {
+    color: red;
+}
+
+.gradSection {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.gradSection>div {
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.addBtn {
+    margin-left: 20px;
+    border: 1px solid grey;
+    background-color: #FF7042;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 30px;
+    padding: 2px 9px;
+    float: left;
+    text-decoration: none;
+}
+
+.row.gradSection .left {
+    width: 10%;
+}
+
+.gradMiddle {
+    width: 90% !important;
+}
+
+.gradMiddle input {
+    width: 45%;
+    margin: 10px;
+    float: left;
+}
+
+.lightBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(133, 140, 137, 0.8);
+}
+
+.lbWrap {
+    background: #fff;
+    width: 34%;
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+}
+
+.btnBox {
+    text-align: right;
+}
+
+.btnBox button {
+    margin: 5px;
+    padding: 5px;
+}
+
+.errMsg {
+    display: none;
+}
+
+.has-error .errMsg {
+    clear: both;
+    color: #a94442;
+    display: block;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+.mt5{
+    margin-top: 7px;
+}

@@ -1,0 +1,1 @@
+var app = angular.module('delhEmp', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'MainService','delhivry.table','delhivry.directive','addEditCntr','ngMessages']);

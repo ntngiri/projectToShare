@@ -1,0 +1,40 @@
+<section class="addEmpl">
+    <button ng-click="addNewEmp()">Add New Employee</button>
+</section>
+
+<section class="searchCandidate">
+<form name="searchFrm">
+<span>Enter Employee Name or Character to search</span>
+    <input type="text" ng-model="searchText" ng-model-options="{ updateOn: 'submit' }"/>
+    <button type="submit">Search Employee</button>
+</form>
+</section>
+<section class="tableSet">
+    <header>
+        <div>Employee ID</div>
+        <div>Employee Name</div>
+        <div>Designation</div>
+        <div>Contact No.</div>
+        <div>EmailId</div>
+        <div>Modify Employee</div>
+        <div>Delete Employee</div>
+    </header>
+    <delhivery-table data="data"></delhivery-table>
+   <!--  <section ng-repeat="x in data |filter:searchText">
+        <div>{{data[$index].id}}</div>
+        <div>{{data[$index].name}}</div>
+        <div>{{data[$index].designation}}</div>
+        <div>{{data[$index].phone}}</div>
+        <div>{{data[$index].email}}</div>
+        <div><button ng-click="modifyUser($index)">Modify</button></div>
+        <div><button ng-click="deleteEmp($index)">Delete</button></div>
+    </section> -->
+</section>
+<section class="lightBox" ng-if="deleteConfirmBox">
+    <div class="lbWrap">
+        <div class="model">
+            <div class="confrmTxt">Do you want to delete employee {{tobedel}}</div>
+            <div class="btnBox"><button ng-click="cancelDelete()">cancel</button><button ng-click="deleteConfirm()">OK</button></div>
+        </div>
+    </div>
+</section>

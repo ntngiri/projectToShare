@@ -1,0 +1,156 @@
+<section class="detailsSection">
+    <form name="detailForm" novalidate ng-submit="detailForm.$valid && submitDetails()">
+        <div class="row">
+            <label class="left">ID</label>
+            <div class="middle">
+                <input type="text" required class="input" name="id" ng-pattern="/^(\d)+$/" placeholder="Enter ID" maxlength="35" ng-model="user.id">
+                <div ng-messages="detailForm.id.$error" ng-show="detailForm.id.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="pattern">Enter a valid id</p>
+                    <p ng-message="required">ID is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label class="left">Email</label>
+            <div class="middle">
+                <input type="email" required name="email" placeholder="Enter email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" maxlength="35" ng-model="user.email">
+                <div ng-messages="detailForm.email.$error" ng-show="detailForm.email.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="pattern">Enter a valid Email id</p>
+                    <p ng-message="required">Email is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label class="left">Name</label>
+            <div class="middle">
+                <input type="text" required class="input" name="name" ng-pattern="/^[a-zA-Z ]*$/" placeholder="Enter your name" maxlength="35" ng-model="user.name">
+                <div ng-messages="detailForm.name.$error" ng-show="detailForm.name.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="pattern">Enter a valid Name</p>
+                    <p ng-message="required">Name is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label class="left">phone</label>
+            <div class="middle">
+                <input type="text" required ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/" class="input" name="phone" placeholder="Enter phone number" maxlength="35" ng-model="user.phone">
+                <div ng-messages="detailForm.phone.$error" ng-show="detailForm.phone.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="pattern">Enter a valid Phone</p>
+                    <p ng-message="required">Phone number is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label class="left">Department</label>
+            <div class="middle">
+                <input type="text" required class="input" name="department" placeholder="Enter your department" maxlength="35" ng-model="user.department">
+                <div ng-messages="detailForm.department.$error" ng-show="detailForm.department.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="required">Department is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label class="left">Designation</label>
+            <div class="middle">
+                <input type="text" required class="input" name="designation" placeholder="Enter your designation" maxlength="35" ng-model="user.designation">
+                <div ng-messages="detailForm.designation.$error" ng-show="detailForm.designation.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="required">Designation is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label class="left">Qualification</label>
+            <div class="middle">
+                <drop-down dd-data="qualificationData" selected-id="user.qualification.selected" placeholder-text="Select your qualification" dropdown-callback="qualCallback(item)" model="qualification" name="qualification"></drop-down>
+            </div>
+        </div>
+        <div class="row gradSection" ng-if="qualBox">
+            <div ng-if="gradBox">
+                <label class="left">Grad</label>
+                <div class="middle gradMiddle">
+                    <input type="text" required class="input" name="gradCrse" placeholder="Enter your course" maxlength="35" ng-model="user.qualification.gradDetail.courseName">
+                    <input type="text" required class="input " name="gradCrse" placeholder="Enter your university" maxlength="35" ng-model="user.qualification.gradDetail.university">
+                    <input type="text" required class="input" name="gradCrse" placeholder="Enter your year" maxlength="35" ng-model="user.qualification.gradDetail.passingYear">
+                </div>
+                <div ng-messages="detailForm.gradCrse.$error" ng-show="detailForm.gradCrse.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="required">Graduation is required.</p>
+                </div>
+            </div>
+            <div ng-if="postgradBox">
+                <label class="left">Post Grad</label>
+                <div class="middle gradMiddle">
+                    <input type="text" required class="input" name="postgradDetail" placeholder="Enter your course" maxlength="35" ng-model="user.qualification.postgradDetail.courseName">
+                    <input type="text" required class="input" name="postgradDetail" placeholder="Enter your university" maxlength="35" ng-model="user.qualification.postgradDetail.university">
+                    <input type="text" required class="input" name="postgradDetail" placeholder="Enter your year" maxlength="35" ng-model="user.qualification.postgradDetail.passingYear">
+                </div>
+                <div ng-messages="detailForm.postgradDetail.$error" ng-show="detailForm.postgradDetail.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="required">Post Graduation is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label class="left">Metro cities</label>
+            <div class="middle">
+                <drop-down dd-data="citiesData" placeholder-text="Select your City" selected-id="user.city.selected" dropdown-callback="cityCallback(item)"></drop-down>
+            </div>
+        </div>
+        <div class="row" ng-if="otherCityBox">
+            <label class="left">Other city</label>
+            <div class="middle">
+                <input type="text" required class="input" name="cityOther" placeholder="Enter your city" maxlength="35" ng-model="user.city.cityName">
+                <div ng-messages="detailForm.cityOther.$error" ng-show="detailForm.cityOther.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="required">City is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label class="left">Address</label>
+            <div class="middle" id="addressLines">
+                <input type="text" required class="input" name="address" placeholder="Address line 1" maxlength="35" ng-model="user.address.line1">
+                <div ng-messages="detailForm.address.$error" ng-show="detailForm.address.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="required">Address is required.</p>
+                </div>
+            </div>
+            <a class="addBtn" href="javascript:void(0)" ng-click="addAdressLine($event)">+</a>
+        </div>
+        <div class="row">
+            <label class="left">Pin Code</label>
+            <div class="middle">
+                <input type="text" required class="input" name="pinCode" placeholder="Pin Code" maxlength="35" ng-model="user.pin">
+                <div ng-messages="detailForm.pinCode.$error" ng-show="detailForm.pinCode.$touched || detailForm.$submitted" class="help-block">
+                    <p ng-message="required">Pin Code is required.</p>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="selectSection">
+                <input type="radio" name="gender" value="Full time" ng-model="user.workNature.selected" ng-change="workNature()">Full time
+                <input type="radio" name="gender" value="Part time" ng-model="user.workNature.selected" ng-change="workNature()">Part Time
+                <input type="radio" name="gender" value="Casual" ng-model="user.workNature.selected" ng-change="workNature()"> Casual
+            </div>
+        </div>
+        <div class="row gradSection" ng-if="WorkNatureDetails">
+            <div ng-if="partTimeDetails">
+                <label>Working hours</label>
+                <div class="middle gradMiddle">
+                    <input type="text" class="input" name="partTimeFrom" placeholder="From" maxlength="35" ng-model="user.workNature.details.Timefrom">
+                    <input type="text" class="input" name="partTimeTo" placeholder="To" maxlength="35" ng-model="user.workNature.details.TimeTo">
+                </div>
+            </div>
+            <div ng-if="contractDetails">
+                <label>Contract dates</label>
+                <div class="middle gradMiddle" ng-class="{ 'has-error' : (detailForm.contractDetailFrom.$invalid && !detailForm.contractDetailFrom.$pristine) ||(detailForm.contractDetailTo.$invalid && !detailForm.contractDetailTo.$pristine) }">
+                    <input type="text" my-date required class="input" name="contractDetailFrom" placeholder="From" maxlength="35" ng-model="user.workNature.details.contractfrom">
+                    <input type="text" my-date="{{user.workNature.details.contractfrom}}" class="input" name="contractDetailTo" placeholder="To" maxlength="35" ng-model="user.workNature.details.contractTo">
+                    <p class="errMsg">Enter valid date in dd/mm/yyyy format</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="center">
+                <button type="submit">Submit</button>
+                <button ng-click="exitAdd()">cancel</button>
+            </div>
+        </div>
+    </form>
+</section>
