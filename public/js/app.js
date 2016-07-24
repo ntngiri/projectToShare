@@ -1,1 +1,1 @@
-var app = angular.module('delhEmp', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'MainService','delhivry.table','delhivry.directive','addEditCntr','ngMessages']);
+var app = angular.module('delhEmp', ['ngRoute', 'appRoutes', 'MainCtrl', 'detailCtrl', 'MainService','delhivry.table','delhivry.directive','addEditCntr','ngMessages']);

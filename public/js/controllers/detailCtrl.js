@@ -1,4 +1,4 @@
-angular.module('NerdCtrl', []).controller('viewDetailsCtrl',['$scope','$location','dataService', function($scope,$location,dataService) {
+angular.module('detailCtrl', []).controller('viewDetailsCtrl',['$scope','$location','dataService', function($scope,$location,dataService) {
 
     //Block to get the index of user to edit 
     var url = $location.path().split("/");
